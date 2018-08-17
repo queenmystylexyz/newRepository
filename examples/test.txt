@@ -1,0 +1,294 @@
+常用的reset.css:
+* {
+
+  outline: 0;
+  
+padding: 0;
+
+  margin: 0;
+
+  border: 0;
+
+  -webkit-tap-highlight-color:transparent;
+
+ }
+
+
+ol, ul {
+
+  list-style: none;
+ }
+
+
+input{
+
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  
+-webkit-appearance: none;
+
+ }
+
+
+table{
+
+  border-collapse: collapse;
+
+  border-spacing: 0;
+
+ }
+
+
+a{
+
+  text-decoration: none;
+
+}
+
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+
+  display: block;
+
+}
+
+/* 禁用iPhone中Safari的字号自动调整 */ 
+
+html { 
+  -webkit-text-size-adjust: none; 
+}
+
+
+CSS控制字体超出隐藏：
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;  
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+
+
+
+IE下透明度：
+	filter:alpha(opacity=0);
+
+CSS3渐变色：
+	background: linear-gradient(left, rgba(23,224,222,1),rgba(23,224,222,0));
+
+media判断横竖屏（移动端）：
+	@media screen and (orientation: portrait)  竖屏   
+
+	@media screen and (orientation: landscape) 横屏  
+
+CSS设置滚动条样式：
+	::-webkit-scrollbar /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  （ie不支持）	
+	::-webkit-scrollbar-track {
+background-color:;-webkit-box-shadow: inset 0 0 6px (0,0,0,0.3);}/*定义滚动条轨道 内阴影+圆角*/  
+	::-webkit-scrollbar-thumb {
+background-color: rgba(0, 0, 0, 0); 
+}/*定义滑块 内阴影+圆角*/   
+	::-webkit-scrollbar-button {
+background-color:;
+} 滑块两头的监听按钮颜色 
+	::-webkit-scrollbar-corner {
+background-color:;
+} 横向滚动条和纵向滚动条相交处尖角的颜色
+
+CSS穿透：
+	pointer-events:none;
+
+css写三角形：
+	.triangle{
+		width:0;height:0;
+		overflow:hidden;
+
+		border-width:10px;
+
+		border-color:transparent transparent red transparent;/*上右下左  哪里需要就在哪里设置颜色*/
+	
+		border-style:dashed dashed solid dashed;/**上右下左  哪里小哪里就设置solid**/
+
+	}
+
+
+
+
+子div设置margin-top时父容器移动解决办法 ：
+	1.父容器设置overflow:hidden;
+	2.子元素使用padding-top代替margin-top
+
+清除浮动：
+	content:'';display:block;clear:both;zoom:1;
+
+js改变checkbox：
+	document.getElementById("id").checked = false;
+
+判断checkbox是否选中：
+	$(boj).is(':checked')
+
+
+JS获取页面可视区域：
+	document.body.clientWidth;
+	document.body.clientHeight;
+	屏幕分辨率的高：window.screen.height 
+	屏幕分辨率的宽：window.screen.width 
+
+
+
+
+JS判断手机屏幕是否旋转：
+	window.addEventListener('orientationchange',updateOrientation,false);
+
+	window.addEventListener('resize',updateOrientation,false);
+
+	function updateOrientation(){
+   
+		switch(window.orientation){
+			//90 -90 横屏,0 180 竖屏 
+			case -90: case 90:
+			break;
+			case 0:case 180:
+			break;
+		}
+}
+
+
+JS获取Chrome浏览器的系统提示：	
+	if (window.Notification)
+{ 
+		if (window.Notification.permission == "granted"){
+			
+var notification = new Notification('标题',{
+body: "内容",
+icon: "图标路径，若不指定认为favicon"
+});
+
+		} 
+		else{
+
+			window.Notification.requestPermission();
+		
+}}
+
+
+
+
+
+常用<meta>标签语句：
+	声明编码：
+<meta charset='utf-8'/>
+
+	搜索引擎索引方式：
+<meta name="robots" content="index,follow" />
+	<!--all：文件将被检索，且页面上的链接可以被查询；
+    	    none：文件将不被检索，且页面上的链接不可以被查询；
+    	    index：文件将被检索；
+    	    follow：页面上的链接可以被查询;
+    	    noindex：文件将不被检索;
+            	    nofollow：页面上的链接不可以被查询。
+
+ 	-->
+
+
+WebApp全屏模式：
+<meta name="apple-mobile-web-app-capable" content="yes" /> <!-- 启用 WebApp 全屏模式 -->
+
+
+隐藏状态栏/设置状态栏颜色：
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+
+添加到主屏后的标题:
+<meta name="apple-mobile-web-app-title" content="标题">
+
+
+忽略数字自动识别为电话号码:
+<meta content="telephone=no" name="format-detection" /> 
+
+
+忽略识别邮箱:
+<meta content="email=no" name="format-detection" />
+
+
+其他：
+<meta name="HandheldFriendly" content="true">
+
+<!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+<meta name="MobileOptimized" content="320"><!-- 微软的老式浏览器 -->
+
+<meta name="screen-orientation" content="portrait">
+<!-- uc强制竖屏 -->
+<meta name="x5-orientation" content="portrait">
+
+
+<!-- QQ强制竖屏 -->
+<meta name="full-screen" content="yes"><!-- UC强制全屏 -->
+<meta name="x5-fullscreen" content="true">
+
+<!-- QQ强制全屏 -->
+<meta name="browsermode" content="application"><!-- UC应用模式 -->
+<meta name="x5-page-mode" content="app">
+
+<!-- QQ应用模式 -->
+<meta name="msapplication-tap-highlight" content="no">
+
+
+<!-- windows phone 点击无高光 -->
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />优先使用IE最新版本和 Chrome：
+
+JS正则验证手机号码：
+var myreg = /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+
+
+js的input事件：change,click事件，
+
+获取值：document.getElementById().value或者.val();
+
+js获取触控点（坐标）：必须用xx.addEventListener("xx",xx,false);
+
+
+js判断一个时间段：
+
+var timerstamp=(new Date());//当前时间
+
+var starttime =(new Date("XXXXXX/XX XX:XX:XX"));
+//活动开始时间
+
+var endtime =(new Date("XXXXXX/XX XX:XX:XX"));
+//活动结束时间
+
+var startsecond=parseInt((starttime.getTime()-timerstamp.getTime())/1000);//计算活动开始时间差
+
+var endsecond=parseInt((endtime.getTime()-timerstamp.getTime())/1000);//计算活动结束时间差
+
+
+REM:
+  (function(){
+
+    /*让文字和标签的大小随着屏幕的尺寸做变话 等比缩放*/
+    var html = document.getElementsByTagName('html')[0];
+    console.log(html);
+    /*取到屏幕的宽度*/
+    var width = window.innerWidth;
+    console.log(width);
+    /* 640 100  320 50 */
+    var fontSize = 100/640*width;
+    console.log(fontSize);
+    /*设置fontsize*/
+
+    html.style.fontSize = fontSize +'px';
+    window.onresize = function(){
+        var html = document.getElementsByTagName('html')[0];
+        console.log(html);
+        /*取到屏幕的宽度*/
+        var width = window.innerWidth;
+        console.log(width);
+        /* 640 100  320 50 */
+        var fontSize = 100/640 * width;
+        console.log(fontSize);
+        /*设置fontsize*/
+        html.style.fontSize = fontSize +'px';
+    }
+
+})()
